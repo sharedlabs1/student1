@@ -1,10 +1,3 @@
-"""
-CS101 Assignment 1: Data Analysis Functions
-
-Complete the following functions according to their docstrings.
-Do not modify the function signatures.
-"""
-
 def calculate_mean(numbers):
     """
     Calculate the arithmetic mean (average) of a list of numbers.
@@ -18,8 +11,9 @@ def calculate_mean(numbers):
     Raises:
         ValueError: If the list is empty
     """
-    # TODO: Implement this function
-   
+    if not numbers:
+        raise ValueError("The list is empty")
+    return sum(numbers) / len(numbers)
 
 
 def find_median(numbers):
@@ -37,8 +31,15 @@ def find_median(numbers):
     Raises:
         ValueError: If the list is empty
     """
-    # TODO: Implement this function
-
+    if not numbers:
+        raise ValueError("The list is empty")
+    sorted_numbers = sorted(numbers)
+    n = len(sorted_numbers)
+    mid = n // 2
+    if n % 2 == 0:
+        return (sorted_numbers[mid - 1] + sorted_numbers[mid]) / 2
+    else:
+        return sorted_numbers[mid]
 
 
 def count_frequency(items):
@@ -51,8 +52,13 @@ def count_frequency(items):
     Returns:
         dict: A dictionary mapping each item to its frequency
     """
-    # TODO: Implement this function
-   
+    frequency = {}
+    for item in items:
+        if item in frequency:
+            frequency[item] += 1
+        else:
+            frequency[item] = 1
+    return frequency
 
 
 def find_range(numbers):
@@ -68,5 +74,14 @@ def find_range(numbers):
     Raises:
         ValueError: If the list is empty
     """
-    # TODO: Implement this function
-   
+    if not numbers:
+        raise ValueError("The list is empty")
+    return max(numbers) - min(numbers)
+
+if __name__ == "__main__":
+    # Example usage
+    numbers = [1, 2, 3, 4, 5]
+    print(calculate_mean(numbers))
+    print(find_median(numbers))
+    print(count_frequency(numbers))
+    print(find_range(numbers))
