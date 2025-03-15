@@ -80,7 +80,7 @@ def find_range(numbers):
 
 if __name__ == "__main__":
     # Example usage
-    numbers = [1, 2, 3, 4, 5,6,7,8,9,10]
+    numbers = [1, 2, 3, 4, 5,6,7,8,9,10,11,12,13,14,15]
     print(calculate_mean(numbers))
     print(find_median(numbers))
     print(count_frequency(numbers))
